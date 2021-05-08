@@ -10,9 +10,11 @@ $customFolderArr = @()
 
 $customFolderArr2 = @()
 
-$rootPath = '_______' #Add path here
+$getPath = Get-Location #gets the current location of the folder / you can delete this variable once you set a absolute path to the "$rootPath" variable
 
-$ass = '_____' #copy the ass folder path in here
+$rootPath = $getPath #Add your desired path here
+
+$ass = "$rootPath\ass" #Add the ass folder path here
 
 function makeFolder {
     param(
@@ -75,3 +77,5 @@ foreach ($customFolder2 in $customFolderArr2) {
 copy-item -path $ass\Outro.mp3 -Destination $rootPath\$rootName\music\"$projectName Outro".mp3
 
 Start-Process $rootPath\$rootName
+
+Start-Process $rootPath\$rootName\music\"$projectName Outro".mp3
